@@ -34,10 +34,8 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-
         toolbarHeight: 140,
       ),
-
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -95,6 +93,32 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              AppSpacing.verticalSpaceMassive,
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSpacing.horizontalSpacing,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Featured Merchants',
+                      style: TextStyles.bodyTextBold.copyWith(fontSize: 16),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        'View all',
+                        style: TextStyles.bodyText.copyWith(
+                          color: AppColors.primaryColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              AppSpacing.verticalSpaceMedium,
             ],
           ),
         ),

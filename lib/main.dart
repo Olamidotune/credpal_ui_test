@@ -1,18 +1,21 @@
+import 'package:credpal_ui_test/presentation/screens/home.dart';
+import 'package:credpal_ui_test/router/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const CredPalApp());
+  runApp(const MyApp());
 }
 
-class CredPalApp extends StatelessWidget {
-  const CredPalApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CredPal UI Test',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Center(child: Text('Hello CredPal!'))),
+      routes: AppRoutes.routes,
+      initialRoute: HomeScreen.routeName,
     );
   }
 }

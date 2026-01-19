@@ -1,6 +1,8 @@
 import 'package:credpal_ui_test/core/constants/app_colors.dart';
 import 'package:credpal_ui_test/core/constants/app_spacing.dart';
 import 'package:credpal_ui_test/core/theme/text_styles.dart';
+import 'package:credpal_ui_test/data/product_list.dart';
+import 'package:credpal_ui_test/models/product.dart';
 import 'package:credpal_ui_test/presentation/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,34 +40,61 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: AppSpacing.horizontalSpacing,
-            ),
-            child: Column(
-              children: [
-                AppSpacing.verticalSpaceMedium,
-                Row(
+          child: Column(
+            children: [
+              AppSpacing.verticalSpaceMedium,
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSpacing.horizontalSpacing,
+                ),
+                child: Row(
                   children: [
                     CustomSearchBar(),
                     AppSpacing.horizontalSpaceMedium,
                     ScanButton(),
                   ],
                 ),
-                AppSpacing.verticalSpaceMedium,
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.5,
-                  color: AppColors.secondaryColor,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.whiteColor,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Image.asset('assets/svg/this.png'),
+              ),
+              AppSpacing.verticalSpaceMedium,
+              Container(
+                height: MediaQuery.of(context).size.height * 0.47,
+                color: AppColors.secondaryColor,
+                child: Padding(
+                  padding: EdgeInsets.all(AppSpacing.horizontalSpacing),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: products.length,
+                          separatorBuilder: (context, index) =>
+                              AppSpacing.horizontalSpaceMedium,
+                          itemBuilder: (context, index) {
+                            final product = products[index];
+                            return ProductCard(product: product);
+                          },
+                        ),
+                      ),
+                      AppSpacing.verticalSpaceMedium,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: products.length,
+                          separatorBuilder: (context, index) =>
+                              AppSpacing.horizontalSpaceMedium,
+                          itemBuilder: (context, index) {
+                            final product = products[index];
+                            return ProductCard(product: product);
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -110,6 +139,92 @@ class CustomSearchBar extends StatelessWidget {
           AppColors.secondaryColor.withValues(alpha: .3),
         ),
         elevation: WidgetStateProperty.all(0),
+      ),
+    );
+  }
+}
+
+class ProductCard extends StatelessWidget {
+  final Product product;
+  const ProductCard({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 160,
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withValues(alpha: .2),
+            blurRadius: 6,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Stack(
+        children: [
+          Center(
+            child: Image.asset(
+              product.imagePath,
+              height: 350,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            top: 8,
+            left: 4,
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.blackColor.withValues(alpha: .15),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: CircleAvatar(
+                radius: 25,
+
+                backgroundColor: Colors.white,
+                child: SvgPicture.asset(product.badge, width: 30, height: 30),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 25,
+            child: Text(
+              product.name,
+              style: TextStyles.bodyTextBold,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Positioned(
+            bottom: 2,
+            child: Row(
+              children: [
+                Text(
+                  '₦ ${product.price}',
+                  style: TextStyles.bodyTextBold.copyWith(
+                    color: AppColors.primaryColor,
+                  ),
+                ),
+                AppSpacing.horizontalSpaceMedium,
+                Text(
+                  '₦ ${product.discountedPrice}',
+                  style: TextStyles.bodyText.copyWith(
+                    color: AppColors.greyColor,
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

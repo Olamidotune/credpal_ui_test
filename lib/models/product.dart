@@ -1,15 +1,15 @@
 class Product {
   final String name;
-  final String imageUrl;
-  final double price;
-  final double discount;
-  final double discountedPrice;
+  final String imagePath;
+  final String price;
+  final String badge;
+  final String discountedPrice;
 
   Product({
     required this.name,
-    required this.imageUrl,
+    required this.imagePath,
     required this.price,
-    required this.discount,
+    required this.badge,
     required this.discountedPrice,
   });
 }

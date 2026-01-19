@@ -2,18 +2,31 @@ import 'package:credpal_ui_test/models/product.dart';
 
 final List<Product> products = [
   Product(
-    name: 'Product 1',
-    imageUrl: 'assets/images/product1.png',
-    price: 120.0,
-    discount: 20,
-    discountedPrice: 100.0,
+    name: 'Nokia G20',
+    imagePath: 'assets/png/nokia.png',
+    price: '39,780',
+    badge: 'assets/svg/40%.svg',
+    discountedPrice: '88,000',
   ),
   Product(
-    name: 'Product 2',
-    imageUrl: 'assets/images/product2.png',
-    price: 80.0,
-    discount: 10,
-    discountedPrice: 72.0,
+    name: 'Iphone XS Max 4GB RAM, 64GB ROM',
+    imagePath: 'assets/png/xsMax.png',
+    price: '295,999',
+    badge: 'assets/svg/ogabassey.svg',
+    discountedPrice: '315,000',
   ),
-  // add more
+  Product(
+    name: 'Anker Soundcore Life P2',
+    imagePath: 'assets/png/anker.png',
+    price: '39,780',
+    badge: 'assets/svg/okay_fones.svg',
+    discountedPrice: '88,000',
+  ),
+  Product(
+    name: 'Iphone 12 Pro',
+    imagePath: 'assets/png/12pm.png',
+    price: '490,500',
+    badge: 'assets/svg/imate.svg',
+    discountedPrice: '515,000',
+  ),
 ];

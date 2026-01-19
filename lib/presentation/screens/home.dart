@@ -52,7 +52,18 @@ class HomeScreen extends StatelessWidget {
                     ScanButton(),
                   ],
                 ),
-                Text('data'),
+                AppSpacing.verticalSpaceMedium,
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  color: AppColors.secondaryColor,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.whiteColor,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Image.asset('assets/svg/this.png'),
+                  ),
+                ),
               ],
             ),
           ),

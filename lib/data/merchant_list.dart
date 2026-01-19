@@ -14,32 +14,33 @@ final List<Merchant> merchants = [
   ),
   Merchant(
     name: 'Slot',
-    logoPath: 'assets/svg/slot.svg',
-    backgroundColor: AppColors.redColor,
+    logoPath: 'assets/png/slot.png',
+    backgroundColor: AppColors.slotColor,
   ),
   Merchant(
     name: 'Pointek',
-    logoPath: 'assets/svg/pointek.svg',
+    logoPath: 'assets/png/pointek.png',
+
     backgroundColor: AppColors.primaryColor,
   ),
   Merchant(
     name: 'ogabassey',
-    logoPath: 'assets/svg/ogabassey.svg',
+    logoPath: 'assets/png/ogabassey.png',
     backgroundColor: AppColors.greyColor,
   ),
   Merchant(
     name: 'Casper Store',
-    logoPath: 'assets/svg/casper.svg',
+    logoPath: 'assets/png/casper.png',
     backgroundColor: AppColors.casperColor,
   ),
   Merchant(
     name: 'Dreamworks',
-    logoPath: 'assets/svg/dreamworks.svg',
+    logoPath: 'assets/png/dreamworks.png',
     backgroundColor: AppColors.dreamWorkColor,
   ),
   Merchant(
     name: 'Hubmart',
-    logoPath: 'assets/svg/hubmart.svg',
+    logoPath: 'assets/png/hubmart.png',
     backgroundColor: AppColors.blackColor,
   ),
   Merchant(
@@ -49,7 +50,7 @@ final List<Merchant> merchants = [
   ),
   Merchant(
     name: 'Just fones',
-    logoPath: 'assets/svg/justfones.svg',
+    logoPath: 'assets/png/justfones.png',
     backgroundColor: AppColors.blackColor,
   ),
 ];

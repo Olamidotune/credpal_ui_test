@@ -1,7 +1,6 @@
 import 'package:credpal_ui_test/core/theme/text_styles.dart';
 import 'package:credpal_ui_test/models/merchant.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class MerchantCard extends StatelessWidget {
   final Merchant merchant;
@@ -22,7 +21,7 @@ class MerchantCard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: merchant.logoPath != null
-                ? SvgPicture.asset(merchant.logoPath!)
+                ? Image.asset(merchant.logoPath!)
                 : Center(
                     child: Text(
                       merchant.name,

@@ -21,4 +21,5 @@ class AppColors {
   static const casperColor = Color(0xFFFE2B5E);
   static const dreamWorkColor = Color(0xFF3F4195);
   static const justUsedColor = Color(0xFF13AFEE);
+  static const slotColor = Color(0xFFED3237);
 }

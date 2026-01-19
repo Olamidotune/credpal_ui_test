@@ -1,9 +1,11 @@
 import 'package:credpal_ui_test/core/constants/app_colors.dart';
 import 'package:credpal_ui_test/core/constants/app_spacing.dart';
 import 'package:credpal_ui_test/core/theme/text_styles.dart';
+import 'package:credpal_ui_test/data/merchant_list.dart';
 import 'package:credpal_ui_test/data/product_list.dart';
 import 'package:credpal_ui_test/presentation/widgets/button.dart';
 import 'package:credpal_ui_test/presentation/widgets/custom_search_bar.dart';
+import 'package:credpal_ui_test/presentation/widgets/merchant_card.dart';
 import 'package:credpal_ui_test/presentation/widgets/product_card.dart';
 import 'package:credpal_ui_test/presentation/widgets/scan_button.dart';
 import 'package:flutter/material.dart';
@@ -119,6 +121,43 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               AppSpacing.verticalSpaceMedium,
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSpacing.horizontalSpacing,
+                ),
+                child: Column(
+                  children: [
+                    AppSpacing.verticalSpaceLarge,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: merchants
+                          .take(4)
+                          .map((merchant) => MerchantCard(merchant: merchant))
+                          .toList(),
+                    ),
+                    AppSpacing.verticalSpaceMedium,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: merchants
+                          .skip(4)
+                          .take(4)
+                          .map((merchant) => MerchantCard(merchant: merchant))
+                          .toList(),
+                    ),
+                    AppSpacing.verticalSpaceMedium,
+                    Row(
+                      children: List.generate(4, (index) {
+                        if (index < 2) {
+                          return Expanded(
+                            child: MerchantCard(merchant: merchants[8 + index]),
+                          );
+                        }
+                        return const Expanded(child: SizedBox());
+                      }),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

@@ -11,11 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CredPal UI Test',
-      debugShowCheckedModeBanner: false,
-      routes: AppRoutes.routes,
-      initialRoute: HomeScreen.routeName,
+    return Builder(
+      builder: (context) {
+        return MaterialApp(
+          title: 'CredPal UI Test',
+          debugShowCheckedModeBanner: false,
+          routes: AppRoutes.routes,
+          initialRoute: HomeScreen.routeName,
+        );
+      },
     );
   }
 }

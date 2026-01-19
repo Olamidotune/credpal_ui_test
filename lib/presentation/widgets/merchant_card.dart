@@ -1,3 +1,4 @@
+import 'package:credpal_ui_test/core/constants/app_colors.dart';
 import 'package:credpal_ui_test/core/theme/text_styles.dart';
 import 'package:credpal_ui_test/models/merchant.dart';
 import 'package:flutter/material.dart';
@@ -37,8 +38,9 @@ class MerchantCard extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           merchant.name,
-          style: TextStyles.bodyText,
+          style: TextStyles.caption.copyWith(color: AppColors.blackColor),
           textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
         ),
       ],
     );

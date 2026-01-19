@@ -138,43 +138,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               AppSpacing.verticalSpaceMedium,
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: AppSpacing.horizontalSpacing,
-                ),
-                child: Column(
-                  children: [
-                    AppSpacing.verticalSpaceLarge,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: merchants
-                          .take(4)
-                          .map((merchant) => MerchantCard(merchant: merchant))
-                          .toList(),
-                    ),
-                    AppSpacing.verticalSpaceMedium,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: merchants
-                          .skip(4)
-                          .take(4)
-                          .map((merchant) => MerchantCard(merchant: merchant))
-                          .toList(),
-                    ),
-                    AppSpacing.verticalSpaceMedium,
-                    Row(
-                      children: List.generate(4, (index) {
-                        if (index < 2) {
-                          return Expanded(
-                            child: MerchantCard(merchant: merchants[8 + index]),
-                          );
-                        }
-                        return const Expanded(child: SizedBox());
-                      }),
-                    ),
-                  ],
-                ),
-              ),
+              MerchantsGrid(),
             ],
           ),
         ),
@@ -192,6 +156,28 @@ class HomeScreen extends StatelessWidget {
       builder: (context) {
         return MerchantsModalBottomSheet();
       },
+    );
+  }
+}
+
+class MerchantsGrid extends StatelessWidget {
+  const MerchantsGrid({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppSpacing.horizontalSpacing),
+      child: GridView.count(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        crossAxisCount: 4,
+        mainAxisSpacing: AppSpacing.verticalValueMedium,
+        crossAxisSpacing: AppSpacing.horizontalSpacing,
+        childAspectRatio: 0.6,
+        children: merchants
+            .map((merchant) => MerchantCard(merchant: merchant))
+            .toList(),
+      ),
     );
   }
 }

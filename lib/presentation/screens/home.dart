@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
               ),
               AppSpacing.verticalSpaceMedium,
               Container(
-                height: MediaQuery.of(context).size.height * 0.47,
+                height: MediaQuery.of(context).size.height * 0.5,
                 color: AppColors.secondaryColor,
                 child: Padding(
                   padding: EdgeInsets.all(AppSpacing.horizontalSpacing),

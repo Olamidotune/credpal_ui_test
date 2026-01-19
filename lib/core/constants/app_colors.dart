@@ -15,6 +15,7 @@ class AppColors {
   static const darkBg = Color(0xFF0A0F1A);
   static const darkSurface = Color(0xFF121826);
   static const lightBg = Color(0xFFF9FAFB);
+  static const yellowColor = Color(0xFFFEFE00);
 
   static const justRiteColor = Color(0xFF000065);
   static const casperColor = Color(0xFFFE2B5E);

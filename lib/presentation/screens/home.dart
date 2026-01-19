@@ -1,4 +1,5 @@
 import 'package:credpal_ui_test/core/constants/app_colors.dart';
+import 'package:credpal_ui_test/core/constants/app_spacing.dart';
 import 'package:credpal_ui_test/core/theme/text_styles.dart';
 import 'package:credpal_ui_test/presentation/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class HomeScreen extends StatelessWidget {
             Column(
               children: [
                 Text('Shopping limit: 0', style: TextStyles.bodyText),
+                AppSpacing.verticalSpaceSmall,
                 const Button(),
               ],
             ),

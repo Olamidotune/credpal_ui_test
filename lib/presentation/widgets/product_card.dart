@@ -70,14 +70,15 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text(
                   '₦ ${product.price}',
-                  style: TextStyles.bodyTextBold.copyWith(
+                  style: TextStyles.caption.copyWith(
                     color: AppColors.primaryColor,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                AppSpacing.horizontalSpaceMedium,
+                AppSpacing.horizontalSpaceSmall,
                 Text(
                   '₦ ${product.discountedPrice}',
-                  style: TextStyles.bodyText.copyWith(
+                  style: TextStyles.caption.copyWith(
                     color: AppColors.greyColor,
                     decoration: TextDecoration.lineThrough,
                   ),

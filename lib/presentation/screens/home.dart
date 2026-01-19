@@ -10,6 +10,7 @@ import 'package:credpal_ui_test/presentation/widgets/merchant_modal_bottom_sheet
 import 'package:credpal_ui_test/presentation/widgets/product_card.dart';
 import 'package:credpal_ui_test/presentation/widgets/scan_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,22 +23,37 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.secondaryColor,
         centerTitle: false,
-        shape: const RoundedRectangleBorder(),
+        toolbarHeight: 140,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Pay later \neverywhere', style: TextStyles.heading1),
-            Icon(Icons.info_outline, color: AppColors.greyColor),
+            RichText(
+              text: TextSpan(
+                style: TextStyles.heading1,
+                children: [
+                  const TextSpan(text: 'Pay later \n'),
+                  const TextSpan(text: 'everywhere'),
+                  WidgetSpan(
+                    alignment: PlaceholderAlignment.middle,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: SvgPicture.asset('assets/svg/info.svg'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text('Shopping limit: 0', style: TextStyles.bodyText),
+                Text('Shopping limit: ₦0', style: TextStyles.bodyText),
                 AppSpacing.verticalSpaceSmall,
                 const Button(),
               ],
             ),
           ],
         ),
-        toolbarHeight: 140,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

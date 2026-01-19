@@ -6,6 +6,7 @@ import 'package:credpal_ui_test/data/product_list.dart';
 import 'package:credpal_ui_test/presentation/widgets/button.dart';
 import 'package:credpal_ui_test/presentation/widgets/custom_search_bar.dart';
 import 'package:credpal_ui_test/presentation/widgets/merchant_card.dart';
+import 'package:credpal_ui_test/presentation/widgets/merchant_modal_bottom_sheet.dart';
 import 'package:credpal_ui_test/presentation/widgets/product_card.dart';
 import 'package:credpal_ui_test/presentation/widgets/scan_button.dart';
 import 'package:flutter/material.dart';
@@ -109,89 +110,7 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyles.bodyTextBold.copyWith(fontSize: 16),
                     ),
                     GestureDetector(
-                      onTap: () {
-                        showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(24),
-                            ),
-                          ),
-                          builder: (context) {
-                            return SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.5,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: AppSpacing.horizontalSpacing,
-                                ),
-                                child: Column(
-                                  children: [
-                                    AppSpacing.verticalSpaceMedium,
-                                    Center(
-                                      child: Container(
-                                        margin: const EdgeInsets.only(
-                                          bottom: 12,
-                                        ),
-                                        height: 4,
-                                        width: 40,
-                                        decoration: BoxDecoration(
-                                          color: AppColors.blackColor,
-                                          borderRadius: BorderRadius.circular(
-                                            20,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    AppSpacing.verticalSpaceLarge,
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: merchants
-                                          .take(4)
-                                          .map(
-                                            (merchant) => MerchantCard(
-                                              merchant: merchant,
-                                            ),
-                                          )
-                                          .toList(),
-                                    ),
-                                    AppSpacing.verticalSpaceMedium,
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: merchants
-                                          .skip(4)
-                                          .take(4)
-                                          .map(
-                                            (merchant) => MerchantCard(
-                                              merchant: merchant,
-                                            ),
-                                          )
-                                          .toList(),
-                                    ),
-                                    AppSpacing.verticalSpaceMedium,
-                                    Row(
-                                      children: List.generate(4, (index) {
-                                        if (index < 2) {
-                                          return Expanded(
-                                            child: MerchantCard(
-                                              merchant: merchants[8 + index],
-                                            ),
-                                          );
-                                        }
-                                        return const Expanded(
-                                          child: SizedBox(),
-                                        );
-                                      }),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      },
+                      onTap: () => _showMerchantModalBottomSheet(context),
                       child: Text(
                         'View all',
                         style: TextStyles.bodyText.copyWith(
@@ -244,6 +163,19 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Future<dynamic> _showMerchantModalBottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (context) {
+        return MerchantsModalBottomSheet();
+      },
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:credpal_ui_test/core/constants/app_colors.dart';
 import 'package:credpal_ui_test/core/constants/app_spacing.dart';
-import 'package:credpal_ui_test/presentation/screens/home.dart';
+import 'package:credpal_ui_test/presentation/widgets/merchant_grid.dart';
 import 'package:flutter/material.dart';
 
 class MerchantsModalBottomSheet extends StatelessWidget {

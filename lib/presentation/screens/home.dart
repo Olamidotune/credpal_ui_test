@@ -1,11 +1,10 @@
 import 'package:credpal_ui_test/core/constants/app_colors.dart';
 import 'package:credpal_ui_test/core/constants/app_spacing.dart';
 import 'package:credpal_ui_test/core/theme/text_styles.dart';
-import 'package:credpal_ui_test/data/merchant_list.dart';
 import 'package:credpal_ui_test/data/product_list.dart';
 import 'package:credpal_ui_test/presentation/widgets/button.dart';
 import 'package:credpal_ui_test/presentation/widgets/custom_search_bar.dart';
-import 'package:credpal_ui_test/presentation/widgets/merchant_card.dart';
+import 'package:credpal_ui_test/presentation/widgets/merchant_grid.dart';
 import 'package:credpal_ui_test/presentation/widgets/merchant_modal_bottom_sheet.dart';
 import 'package:credpal_ui_test/presentation/widgets/product_card.dart';
 import 'package:credpal_ui_test/presentation/widgets/scan_button.dart';
@@ -156,28 +155,6 @@ class HomeScreen extends StatelessWidget {
       builder: (context) {
         return MerchantsModalBottomSheet();
       },
-    );
-  }
-}
-
-class MerchantsGrid extends StatelessWidget {
-  const MerchantsGrid({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSpacing.horizontalSpacing),
-      child: GridView.count(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        crossAxisCount: 4,
-        mainAxisSpacing: AppSpacing.verticalValueMedium,
-        crossAxisSpacing: AppSpacing.horizontalSpacing,
-        childAspectRatio: 0.6,
-        children: merchants
-            .map((merchant) => MerchantCard(merchant: merchant))
-            .toList(),
-      ),
     );
   }
 }

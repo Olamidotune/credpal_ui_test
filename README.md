@@ -77,8 +77,10 @@ Scroll behaviors were inferred where not explicitly defined in Figma.
 
 
 ## 🧱 Project Structure
+
 The project follows a simple and scalable structure:
 
+```text
 lib/
 ├── core/
 │   └── constants/
@@ -86,19 +88,17 @@ lib/
 │       ├── app_spacing.dart
 │       └── text_styles.dart
 ├── data/
-│     ├──merchant_list.dart
-|     └──product_list.dart
-|
+│   ├── merchant_list.dart
+│   └── product_list.dart
 ├── models/
-│     ├──merchant.dart
-|     └──product.dart
-|
+│   ├── merchant.dart
+│   └── product.dart
 ├── presentation/
-│    ├── screens/
-│    |   └── home.dart
-│    └── widgets/
-│
+│   ├── screens/
+│   │   └── home.dart
+│   └── widgets/
 └── main.dart
+```
 
 ## 👨🏾‍💻 Author
 Egundeyi Oladotun David

@@ -100,3 +100,6 @@ lib/
 │
 └── main.dart
 
+## 👨🏾‍💻 Author
+Egundeyi Oladotun David
+Flutter Mobile Developer

@@ -10,16 +10,33 @@ class MerchantsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: AppSpacing.horizontalSpacing),
-      child: GridView.count(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        crossAxisCount: 4,
-        mainAxisSpacing: AppSpacing.verticalValueMedium,
-        crossAxisSpacing: AppSpacing.horizontalSpacing,
-        childAspectRatio: 0.6,
-        children: merchants
-            .map((merchant) => MerchantCard(merchant: merchant))
-            .toList(),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          int crossAxisCount;
+          double childAspectRatio;
+          if (constraints.maxWidth >= 1200) {
+            crossAxisCount = 6;
+            childAspectRatio = 2;
+          } else if (constraints.maxWidth >= 800) {
+            crossAxisCount = 4;
+            childAspectRatio = 0.9;
+          } else {
+            crossAxisCount = 4;
+            childAspectRatio = 0.6;
+          }
+
+          return GridView.count(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: crossAxisCount,
+            mainAxisSpacing: AppSpacing.verticalValueMedium,
+            crossAxisSpacing: AppSpacing.horizontalSpacing,
+            childAspectRatio: childAspectRatio,
+            children: merchants
+                .map((merchant) => MerchantCard(merchant: merchant))
+                .toList(),
+          );
+        },
       ),
     );
   }

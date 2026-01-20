@@ -1,6 +1,6 @@
 import 'package:credpal_ui_test/core/constants/app_colors.dart';
 import 'package:credpal_ui_test/core/constants/app_spacing.dart';
-import 'package:credpal_ui_test/core/theme/text_styles.dart';
+import 'package:credpal_ui_test/core/constants/text_styles.dart';
 import 'package:credpal_ui_test/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

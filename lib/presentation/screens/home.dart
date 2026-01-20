@@ -1,6 +1,6 @@
 import 'package:credpal_ui_test/core/constants/app_colors.dart';
 import 'package:credpal_ui_test/core/constants/app_spacing.dart';
-import 'package:credpal_ui_test/core/theme/text_styles.dart';
+import 'package:credpal_ui_test/core/constants/text_styles.dart';
 import 'package:credpal_ui_test/data/product_list.dart';
 import 'package:credpal_ui_test/presentation/widgets/button.dart';
 import 'package:credpal_ui_test/presentation/widgets/custom_search_bar.dart';
